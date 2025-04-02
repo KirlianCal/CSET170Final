@@ -1,0 +1,35 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="{{ url_for('index') }}" class="home-link">Home</a>
+            <h1>Account Signup Form</h1>
+        </header>
+        
+        <div class="uni-form">
+            <form method="POST">
+                <input type="text" name="username" required placeholder="Username">
+                <input type="text" name="first_name" required placeholder="First Name">
+                <input type="text" name="last_name" required placeholder="Last Name">
+                <input type="text" name="ssn" required placeholder="SSN" pattern="[0-9]{9}">
+                <input type="text" name="address" required placeholder="Address">
+                <input type="text" name="phone_num" required placeholder="Phone Number"  pattern="[0-9]{10}">
+                <input type="password" name="password" required placeholder="Password">
+                <input type="submit" value="Signup">
+            </form>
+        </div>
+    </div>
+    <div>
+        <h1>{{  error  }}</h1>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Money LLC.</h1>
+        </header>
+        <form method="POST" action="/signout" class="nav-item signout">
+            <button type="submit">Sign-Out</button>
+        </form>
+        <nav class="nav-links">
+            <a href="{{ url_for('login') }}" class="nav-item">Login</a>
+            <a href="{{ url_for('signup') }}" class="nav-item">Signup</a>
+            <a href="{{ url_for('admin_view') }}" class="nav-item">Admin View</a>
+            <a href="{{ url_for('my_account') }}" class="nav-item">My Account</a>
+            <a href="{{ url_for('deposit') }}" class="nav-item">Deposit</a>
+        </nav>
+    </div>
+</body>
+<h2>{{ user_id }}</h2>
+</html>
+{% endblock %}

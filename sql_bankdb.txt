@@ -1,0 +1,46 @@
+create database bankdb;
+drop database bankdb;
+use bankdb;
+select * from accounts;
+select * from admin;
+create table accounts (
+	user_id int primary key auto_increment,
+    first_name varchar(40) not null,
+    last_name varchar(40) not null,
+    phone_num varchar(12) not null,
+    username varchar(40) not null,
+    password varchar(40) not null,
+    ssn varchar(11) not null,
+    balance int not null,
+    address varchar(60) not null,
+    type varchar(1) not null
+);
+create table admin (
+	user_id int primary key auto_increment,
+    username varchar(40) not null,
+    password varchar(40) not null,
+    foreign key (user_id) references accounts(user_id) on delete cascade
+);
+insert into admin (user_id, username, password)
+values
+(1, 'bankAdmin', 'iseeall');
+create table users (
+	status varchar(40) not null,
+    user_id int primary key auto_increment,
+    foreign key (user_id) references accounts(user_id) on delete cascade
+);
+create table approved_users (
+	acccount_num int primary key auto_increment, 
+    user_id int,
+    trans_history varchar(255),
+    foreign key (user_id) references accounts(user_id) on delete cascade
+);
+create table transactions (
+	trans_id int primary key auto_increment,
+	user_2 int,
+    user_1 int,
+    ammount int not null,
+    direction int not null,
+    foreign key (user_1) references accounts(user_id) on delete cascade,
+    foreign key (user_2) references accounts(user_id) on delete cascade
+);
