@@ -1,2 +1,25 @@
-{% block body %}
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Transfer Money</h2>
+<form method="POST">
+    <label>Your Account Number:</label>
+    <input type="text" name="sender_account" value="{{ account.account_num }}" readonly><br>
+
+    <label>Recipient Username:</label>
+    <input type="text" name="recipient_username" required><br>
+
+    <label>Amount to Send:</label>
+    <input type="number" name="amount" min="1" required><br>
+
+    <button type="submit">Send Money</button>
+</form>
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+{% if success %}
+<p style="color:green;">{{ success }}</p>
+{% endif %}
+
 {% endblock %}

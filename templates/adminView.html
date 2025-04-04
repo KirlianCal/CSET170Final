@@ -1,37 +1,50 @@
-{% block body %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin View</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <div class="container">
         <header>
             <h1>Account Directory</h1>
-            <a href="{{ url_for('index') }}" class="home-link">Home</a>
         </header>
+        <form method="POST" action="/signout" class="nav-item">
+            <button type="submit">Sign-Out</button>
+        </form>
+        <div class="filter-form">
+            <form method="POST" action="/admin_view">
+                <select name="type" id="type">
+                    <option value="">All</option>
+                    <option value="A">Unverified</option>
+                    <option value="B">Verified</option>
+                </select>
+                <input type="submit" value="Filter" class="submit-btn">
+            </form>
+        </div>
         <div class="account-list">
             {% for account in accounts %}
-            <div class="account-card">
-                <ul>
-                    <li><strong>ID:</strong> {{ account[0] }}</li>
-                    <li><strong>First Name:</strong> {{ account[1] }}</li>
-                    <li><strong>Last Name:</strong> {{ account[2] }}</li>
-                    <li><strong>Phone Number:</strong> {{ account[3] }}</li>
-                    <li><strong>Username:</strong> {{ account[4] }}</li>
-                    <li><strong>SSN:</strong> {{ account[6] }}</li>
-                    <li><strong>Balance:</strong> {{ account[7] }}</li>
-                    <li><strong>Address:</strong> {{ account[8] }}</li>
-                    <li><strong>Type:</strong> {{ account[9] }}</li>
-                </ul>
-            </div>
-            <li><strong>password:</strong> {{ account[5] }}</li>
+            {% if account[0] != 1 %}
+                <div class="account-card">
+                    <ul>
+                        {% for account_num in account_nums %}
+                            {% if account_num[1] == account[0] %}
+                                <li><strong>Account Number:</strong> {{ account_num[0] }}</li>
+                            {% endif %}
+                        {% endfor %}
+                        <li><strong>ID:</strong> {{ account[0] }}</li>
+                        <li><strong>First Name:</strong> {{ account[1] }}</li>
+                        <li><strong>Last Name:</strong> {{ account[2] }}</li>
+                        <li><strong>Phone Number:</strong> {{ account[3] }}</li>
+                        <li><strong>Username:</strong> {{ account[4] }}</li>
+                        <li><strong>SSN:</strong> {{ account[6] }}</li>
+                        <li><strong>Balance:</strong> {{ account[7] }}</li>
+                        <li><strong>Address:</strong> {{ account[8] }}</li>
+                        {% if account[9] == 'A' %}
+                        <form method="POST" action="/verify" class="nav-item">
+                            <input type="hidden" name="user_id" value="{{ account[0] }}">
+                            <button type="submit">Verify</button>
+                        </form>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
-</body>
-</html>
 {% endblock %}

@@ -1,15 +1,13 @@
 create database bankdb;
 drop database bankdb;
 use bankdb;
-select * from accounts;
-select * from admin;
 create table accounts (
 	user_id int primary key auto_increment,
     first_name varchar(40) not null,
     last_name varchar(40) not null,
     phone_num varchar(12) not null,
     username varchar(40) not null,
-    password varchar(40) not null,
+    password varchar(255) not null,
     ssn varchar(11) not null,
     balance int not null,
     address varchar(60) not null,
@@ -24,13 +22,8 @@ create table admin (
 insert into admin (user_id, username, password)
 values
 (1, 'bankAdmin', 'iseeall');
-create table users (
-	status varchar(40) not null,
-    user_id int primary key auto_increment,
-    foreign key (user_id) references accounts(user_id) on delete cascade
-);
 create table approved_users (
-	acccount_num int primary key auto_increment, 
+	account_num int primary key, 
     user_id int,
     trans_history varchar(255),
     foreign key (user_id) references accounts(user_id) on delete cascade

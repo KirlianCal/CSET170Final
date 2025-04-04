@@ -1,2 +1,24 @@
-{% block body %}
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Transfer Money</h2>
+<a href="{{ url_for('index') }}" class="home-link">Home</a>
+<form method="POST">
+    <label for="recipient_account_num" style="color: white;">Recipient Account Number:</label>
+    <input type="text" name="recipient_account_num" required>
+
+    <label for="amount" style="color: white;">Amount:</label>
+    <input type="number" name="amount" required>
+
+    <button type="submit">Send</button>
+</form>
+
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+{% if success %}
+<p style="color:green;">{{ success }}</p>
+{% endif %}
+
 {% endblock %}

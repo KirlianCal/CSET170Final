@@ -1,13 +1,5 @@
-{% block body %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Signup</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <div class="container">
         <header>
             <a href="{{ url_for('index') }}" class="home-link">Home</a>
@@ -30,6 +22,4 @@
     <div>
         <h1>{{  error  }}</h1>
     </div>
-</body>
-</html>
 {% endblock %}

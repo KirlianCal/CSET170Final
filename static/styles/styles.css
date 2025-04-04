@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://wallpapercave.com/wp/wp6602889.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    width: fit-content;
+    margin: auto;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.home-link:hover {
+    background-color: #004085;
+}
+
+.filter-form {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.filter-form form {
+    display: inline-block;
+}
+
+label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+select {
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    padding: 8px 15px;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.nav-item {
+    display: inline-block;
+    margin: auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+    background-color: #0056b3;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.uni-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.uni-form input,
+.uni-form select {
+    padding: 10px;
+    margin: auto;
+    margin-top: 20px;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.uni-form input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.uni-form input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.account-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; 
+    padding: 0 10px; 
+    margin: 0 auto;
+}
+
+.account-card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.account-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.account-card li {
+    margin: 10px 0;
+}
+
+.account-card li strong {
+    font-weight: bold;
+}
