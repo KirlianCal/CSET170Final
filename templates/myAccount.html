@@ -4,12 +4,12 @@
         <header>
             <h1>My Account</h1>
             <a href="{{ url_for('deposit') }}" class="nav-item">Deposit</a>
+            <a href="{{ url_for('transactions') }}" class="nav-item">Transactions</a>
             <form method="POST" action="/signout" class="nav-item signout">
                 <button type="submit">Sign-Out</button>
             </form>
-            <a href="{{ url_for('transactions') }}" class="nav-item">Transactions</a>
         </header>
-        <div class="account-list">
+        <div class="account-list2">
             <div class="account-card">
                 <ul>
                     <li><strong>Account Number:</strong> {{ account_num[0] }}</li>

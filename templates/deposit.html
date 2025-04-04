@@ -2,14 +2,14 @@
 {% block content %}
     <div class="container">
         <header>
-            <a href="{{ url_for('index') }}" class="home-link">Home</a>
+            <a href="{{ url_for('my_account') }}" class="home-link">Home</a>
             <h1>Deposit Form</h1>
         </header>
         <div class="uni-form">
             <form method="POST">
-                <input type="text" name="card_num" required placeholder="Card Number">
+                <input type="text" name="card_num" required placeholder="Card Number" pattern="[0-9]{16}">
                 <input type="date" name="date" required placeholder="Expiry Date">
-                <input type="text" name="cvv" required placeholder="CVV">
+                <input type="text" name="cvv" required placeholder="CVV" pattern="[0-9]{3}">
                 <input type="number" name="deposit" required placeholder="Deposit Amount">
                 <input type="submit" value="Deposit">
             </form>

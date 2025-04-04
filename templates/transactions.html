@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Transfer Money</h2>
-<a href="{{ url_for('index') }}" class="home-link">Home</a>
-<form method="POST">
-    <label for="recipient_account_num" style="color: white;">Recipient Account Number:</label>
-    <input type="text" name="recipient_account_num" required>
+<header>
+    <h1>Transfer Money</h1>
+    <a href="{{ url_for('my_account') }}" class="home-link">Home</a>    
+</header>
+<div class="uni-form">
+    <form method="POST">
+        <label for="recipient_account_num" style="color: white;">Recipient Account Number:</label>
+        <input type="text" name="recipient_account_num" required>
+        <label for="amount" style="color: white;">Amount:</label>
+        <input type="number" name="amount" required>
+        <button type="submit">Send</button>
+    </form>
+</div>
 
-    <label for="amount" style="color: white;">Amount:</label>
-    <input type="number" name="amount" required>
-
-    <button type="submit">Send</button>
-</form>
 
 
 {% if error %}

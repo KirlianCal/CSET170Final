@@ -19,7 +19,9 @@
             </form>
         </div>
     </div>
+    {% if error %}
     <div>
         <h1>{{  error  }}</h1>
     </div>
+    {% endif %}
 {% endblock %}

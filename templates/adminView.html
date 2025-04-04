@@ -3,10 +3,11 @@
     <div class="container">
         <header>
             <h1>Account Directory</h1>
+            <form method="POST" action="/signout" class="nav-item">
+                <button type="submit">Sign-Out</button>
+            </form>
         </header>
-        <form method="POST" action="/signout" class="nav-item">
-            <button type="submit">Sign-Out</button>
-        </form>
+        
         <div class="filter-form">
             <form method="POST" action="/admin_view">
                 <select name="type" id="type">
